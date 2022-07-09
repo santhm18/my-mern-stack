@@ -1,0 +1,47 @@
+.confirmationModal {
+    .modal-dialog {
+        .modal-content {
+            .modal-header {
+                .modal-title {
+                    color: #161616;
+                    font-family: "IBM Plex Sans";
+                    font-size: 20px;
+                    letter-spacing: 0;
+                    line-height: 28px;
+                }
+            }
+
+            .modal-body {
+                color: #161616;
+                font-family: "IBM Plex Sans";
+                font-size: 14px;
+                letter-spacing: 0.16px;
+                line-height: 20px;
+            }
+
+            .modal-footer {
+                button {
+                    color: #FFFFFF;
+                    font-family: "IBM Plex Sans";
+                    font-size: 14px;
+                    letter-spacing: 0.16px;
+                    line-height: 18px;
+                }
+
+                button:nth-child(1) {
+                    background-color: #393939;
+                    height: 40px;
+                    width: 120px;
+                    border-radius: 0rem;
+                }
+
+                button:nth-child(2) {
+                    background-color: #0F62FE;
+                    height: 40px;
+                    width: 120px;
+                    border-radius: 0rem;
+                }
+            }
+        }
+    }
+}

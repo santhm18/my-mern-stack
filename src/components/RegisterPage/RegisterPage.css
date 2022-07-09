@@ -1,0 +1,71 @@
+.authWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+  }
+  .authInner {
+    width: 450px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 30px 45px 30px;
+    border-radius: 8px;
+    transition: all .3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .authWrapper .form-control:focus {
+    border-color: #167bff;
+    box-shadow: none;
+  }
+  .authWrapper h3 {
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+    padding-bottom: 20px;
+  }
+
+  .marginBottom15 {
+    margin-bottom: 15px;
+   }
+
+   .marginBottom5 {
+     margin-bottom: 5px;
+   }
+
+   .RegisterBtn {
+    width: 110px;
+    float: right;
+    margin-top:15px;
+    height:40px;
+    margin-top: 15px;
+    border-radius: 0px;
+    font-family: "IBM Plex Sans";
+    font-size: 14px;
+    letter-spacing: 0.16px;
+    line-height: 18px;
+   }
+
+   .loginRegisterBtn {
+     display: inline-block;
+     font-size: 12px;
+     margin-top: 5px;
+   }
+
+   .padding0 {
+     padding:0px
+   }
+
+   .loginLink {
+     padding-left: 0px;
+     font-size: 12px;
+   }
+
+   .invalid {
+    font-size: 12px;
+    color: #dc3545;
+    margin-top: 2px;
+   }

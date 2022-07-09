@@ -1,0 +1,13 @@
+.header {
+    background-color: #0062FF;
+    padding:10px 10px;
+    height:70px;
+}
+
+.header h2 {
+    font-size: 18px;
+    font-family: IBM Plex Sans SemiBold;
+    line-height: 18px;
+    color: #fff;
+    margin: 14px 0px 0px 14px;
+}

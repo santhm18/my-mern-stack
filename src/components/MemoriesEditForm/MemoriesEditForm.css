@@ -1,0 +1,38 @@
+.editForm {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.updateBtn {
+    display: inline-block;
+    width: 120px;
+    padding: 12px 12px;
+    margin-bottom: 20px;
+    border-radius: 0px;
+    color: #FFFFFF;
+    font-family: "IBM Plex Sans";
+    font-size: 14px;
+    letter-spacing: 0.16px;
+    line-height: 18px;
+}
+
+.editForm .ck-editor__editable_inline {
+    min-height: 250px;
+}
+
+.previewBanner {
+    width: 50%;
+    display: inline-block;
+}
+
+.bannerDetails {
+    background-color: blanchedalmond;
+    height: 180px;
+    padding: 12px 12px;
+    width: 100%;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}

@@ -1,0 +1,47 @@
+.fileInput{
+    width: '97%';
+    margin: '10px 0';
+  }
+
+  .memoryFormModal > .modal-dialog > .modal-content > .modal-header > .modal-title {
+    font-size: 18px;
+    font-family: IBM Plex Sans Medium;
+    color: #222222;
+    line-height:22px;
+  }
+
+  .memoryFormModal .memoriesForm > form > div > label {
+    font-size: 14px;
+    font-family: IBM Plex Sans Medium;
+    color: #222222;
+    line-height:18px;
+    margin-bottom:8px;
+  }
+
+  .memoryFormModal .memoriesForm > form > div > .form-fields {
+    font-size: 14px;
+    color: #222222;
+    padding: 10px 10px;
+    font-family: IBM Plex Sans;
+  }
+
+  .formbuttons {
+    padding: 8px 8px;
+    border: none;
+    width: 100px;
+    border-radius: 0px;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.06);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.06);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.06);
+    font-family: IBM Plex Sans Text;
+    font-size: 14px;
+  }
+
+  .formCreationbutton {
+      background-color: #0062FF;
+      color: #fff;
+  }
+
+  .formClearbutton {
+      background-color: #E6E6E6;
+  }

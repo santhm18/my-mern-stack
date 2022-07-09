@@ -1,0 +1,71 @@
+.contactUs {
+    padding-bottom: 10px;
+}
+
+.sendUsMessageContainer {
+    background-color: #fff;
+    box-shadow: 0px 0px 12px 1px #937785;
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50%;
+    padding:30px 15px 30px 15px;
+}
+
+.SendMessageTitle {
+    color: #222222;
+    font-family: "IBM Plex Sans";
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 22px;
+    padding-bottom: 15px;
+}
+
+.sendMsgBtnBox {
+    text-align: left;
+}
+
+.sendMsgBtn {
+    outline: none;
+    border:none;
+    color: #FFFFFF;
+    font-family: "IBM Plex Sans";
+    font-size: 14px;
+    letter-spacing: 0.16px;
+    line-height: 18px;
+    height: 48px;
+    width: 180px;
+    background-color: #171717;
+}
+
+.sendMsgBtn:hover {
+    background-color: #171717;
+    color: #FFFFFF;
+}
+
+.customFormGroup > input {
+    width: 100%;
+    padding:10px 10px;
+    color: #161616;
+    font-family: "IBM Plex Sans";
+    font-size: 14px;
+    letter-spacing: 0.16px;
+    line-height: 18px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px)  {
+    .sendUsMessageContainer {
+        width: 100%;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: translate(0%, 0%);
+      }
+
+      .contactUs {
+          margin-top:30px;
+      }
+  }

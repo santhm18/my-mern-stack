@@ -1,0 +1,104 @@
+.createButton {
+    text-align:right;
+    margin-bottom:25px;
+  
+}
+
+.createButton > button {
+    color: #fff;
+    font-size: 14px;
+    font-family: IBM Plex Sans Text;
+    letter-spacing: 0.16px;
+    line-height: 18px;
+    padding: 8px 8px 8px 8px;
+    display: inline-block;
+    background-color: #0062FF;
+    border-radius: 0px;
+    border: 1px solid transparent;
+    padding:12px 12px;
+}
+
+.createButton > button:hover {
+    color: #fff;
+}
+
+.dashboard {
+   /* padding: 40px 0px 10px 20px; */
+   padding: 0px 0px 10px 0px;
+   height: 100vh;
+
+}
+
+.tab {
+    padding-top: 15px;
+}
+
+.iconColor {
+    fill: #fff;
+}
+
+.dashboardTabContent {
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.06);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.06);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.06);
+    padding-bottom: 30px;
+}
+
+.dashboardTab > li .nav-link {
+    font-family: IBM Plex Sans Medium;
+    background-color: #E6E6E6;
+    color:#525252;
+    line-height: 18px;
+    letter-spacing: normal;
+    font-size: 14px;
+    width: 130px;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.06);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.06);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.06);
+}
+
+.dashboardTab > li .nav-link.active {
+    border-radius: 0px;
+    border: none;
+    font-family: IBM Plex Sans Medium;
+    border-top: 3px solid #0062FF;
+    color: #171717;
+    font-size: 14px;
+}
+
+.displayLastLogin {
+    font-style: italic;
+    font-size: 12px;
+    color: #565656;
+    line-height:16px;
+    font-family: IBM Plex Sans Medium;
+    letter-spacing:0.32px;
+}
+
+
+.spinnerContainer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    text-align: center;
+  }
+  
+  .spinnerContainer>div {
+    left: calc((50vw - 50%) * -1);
+    top: calc((50vh - 50%) * -1);
+    transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  }
+  
+  .spinnerContainer>div>div {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .textRight {
+      text-align: right;
+  }
