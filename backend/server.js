@@ -11,7 +11,7 @@ const app = express();
 require("./config/database");
 
 const { API_PORT } = process.env
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || API_PORT;
 const transporter = nodemailer.createTransport({
     host: "smtp.mailtrap.io", //replace with your email provider
     port: 587,
