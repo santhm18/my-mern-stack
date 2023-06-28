@@ -1,6 +1,8 @@
 const express = require('express');
 const User = require("../models/user");
 const auth = require('../middleware/auth');
+const { update } = require('../models/user');
+const { generate } = require('nth-check');
 
 const router = new express.Router();
 
@@ -42,6 +44,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
+
 router.post("/logout", auth, async (req, res) => {
     try {
         await User.deleteAuthToken(req.body.token, (err, user) => {
@@ -56,6 +59,35 @@ router.post("/logout", auth, async (req, res) => {
         });
     } catch (e) {
         return res.status(400).send({ error: e.message });
+    }
+});
+
+
+router.post("/updateProfile", async (req, res) => {
+
+    try {
+        const user =  await User.findById(req.user._id);
+
+        if(user) {
+            user.name = req.body.name;
+            user.email =  req.body.email;
+        }
+
+        if(req.body.password) {
+            user.password =  req.body.password;
+        }
+
+        const updatedUser =  await user.save();
+        const token = await updatedUser.generateAuthToken();
+        res.json({
+            _id:updatedUser._id,
+            name: updatedUser.name,
+            email:updatedUser.email,
+            token :  token
+        })
+        
+    } catch (e) {
+        return res.status(401).send({ error: "no user found credentials!!" });
     }
 });
 

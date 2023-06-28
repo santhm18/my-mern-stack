@@ -20,8 +20,9 @@ router.post('/createMemory', auth,async (req, res) => {
 
 
 router.get('/getMemories', auth,async (req, res) => {
-  
     try {
+        // const userDetails =  await User.findById(req.user._id);
+        // console.log(userDetails);
         const memories =  await Memory.find({owner: req.user._id})
        // const userMemories = req.user['user']._mongooseOptions === {} ? {} : req.user['user']._mongooseOptions.populate('memories');
      //  await userMemories;
@@ -36,7 +37,7 @@ router.get('/getMemories', auth,async (req, res) => {
 
 router.get('/getMemory/:id', auth,async (req, res) => {
     const { id } = req.params;
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+    // if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
     try {
         const memory = await Memory.findById(id);
         res.json(memory);
