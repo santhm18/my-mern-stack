@@ -22,7 +22,6 @@ function MemoriesEditForm() {
    const selectedFile = {
       backgroundImage: 'url(' + updateMemory.selectedFile + ')'
    }
-   // const { memory } = location.state;
    function handleEditorChange(event, editor) {
       const sanitizedData = sanitizeHtml(editor.getData());
       setUpdateMemory(updateMemory => ({ ...updateMemory, description: sanitizedData }));

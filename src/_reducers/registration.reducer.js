@@ -20,3 +20,24 @@ export function registration (state = initialState, action) {
             return state
     }
 }
+
+
+export function userUpdateReducer (state = initialState, action) {
+    switch (action.type) {
+        case Types.REGISTER_UPDATE_REQUEST: 
+        return {
+           loading: true
+        };
+        case Types.REGISTER_UPDATE_SUCCESS:
+            return {
+                ...state,
+                loading: true,
+                success: true,
+                user : action.payload
+            };
+        case Types.REGISTER_UPDATE_FAILURE:
+            return {loading: false,  success: false, error: action.payload};
+        default:
+            return state
+    }
+}

@@ -1,16 +1,25 @@
 .sideMenulinks {
     height: 64px;
-    width: 250px;
+    width: 100%;
     padding: 10px 0px 10px 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+
+  }
+
+  .custom-nav-pills {
+    width: 100%;
   }
 
   .sideLinks {
     color: #0060FF;
-    font-family: "IBM Plex Sans";
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0;
     line-height: 22px;
+   
   }
 
   .right-content {
@@ -18,14 +27,24 @@
   }
 
   .sideBarWidth {
-      width: 250px;
+      width: 180px;
+      border: 1px solid #e4e4e4;
   }
 
   @media only screen and (min-width: 320px) and (max-width: 767px)  {
     .sideMenulinks {
         width: 100%;
+        height: auto;
       }
       .sideBarWidth {
         width: 100%;
+    }
+
+    .custom-nav-pills {
+      width: 100%;
+    }
+
+    .custom-offcanvas {
+      width: 15% !important;
     }
   }

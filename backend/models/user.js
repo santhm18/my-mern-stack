@@ -23,6 +23,13 @@ const userSchema = new mongoose.Schema({
         minlength: 7,
         trim: true
     },
+    phoneNumber : {
+        type: String,
+        required: true
+    },
+    profilePicture: {
+        type: String,
+     },
     createdAt: {
         type: Date,
         default: new Date(),

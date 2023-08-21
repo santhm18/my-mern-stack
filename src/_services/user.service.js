@@ -1,11 +1,12 @@
 import axios from "axios";
-const url = 'http://localhost:5000';
-
-export const fetchMemories = (headers) => axios.get(`${url}/memory/getMemories`,{headers:headers});
-export const createMemory = (memory,headers) => axios.post(`${url}/memory/createMemory`, memory, {headers:headers});
-export const updateMemory = (id, updatedMemory,headers) => axios.patch(`${url}/memory/getMemory/${id}`, updatedMemory, {headers:headers});
-export const deleteMemory = (id,headers) => axios.delete(`${url}/memory/getMemory/${id}`, {headers:headers});
-export const contactUsDetails = (contactDetails,headers) => axios.post(`${url}/send`,contactDetails, {headers:headers});
-export const registerUser = (user) => axios.post(`${url}/user/register`, user);
-export const loginUser = (user) => axios.post(`${url}/user/login`, user);
-export const logoutUser = (token,headers) => axios.post(`${url}/user/logout`, token, {headers:headers});
+const url = 'http://localhost:5001';
+export const fetchBarChartData = (headers) => axios.get(`/chartdata/barchart`,{headers:headers});
+export const fetchMemories = (headers) => axios.get(`/memory/getMemories`,{headers:headers});
+export const createMemory = (memory,headers) => axios.post(`/memory/createMemory`, memory, {headers:headers});
+export const updateMemory = (id, updatedMemory,headers) => axios.patch(`/memory/getMemory/${id}`, updatedMemory, {headers:headers});
+export const deleteMemory = (id,headers) => axios.delete(`/memory/getMemory/${id}`, {headers:headers});
+export const contactUsDetails = (contactDetails,headers) => axios.post(`/send`,contactDetails, {headers:headers});
+export const registerUser = (user) => axios.post(`/user/register`, user);
+export const loginUser = (user) => axios.post(`/user/login`, user);
+export const updateUser = (user) => axios.post(`/user/updateProfile`, user);
+export const logoutUser = (token,headers) => axios.post(`/user/logout`, token, {headers:headers});

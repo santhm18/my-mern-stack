@@ -6,25 +6,24 @@ const cors = require('cors');
 const auth = require('./middleware/auth');
 const userRoute = require('./routes/user');
 const memoryRoute = require('./routes/memory');
+const chartRoute = require('./routes/chart');
 const path = require('path')
 const app = express();
 require("./config/database");
 
 const { API_PORT } = process.env
-const port = process.env.PORT || API_PORT;
-const transporter = nodemailer.createTransport({
-    host: "smtp.mailtrap.io", //replace with your email provider
-    port: 587,
-    ignoreTLS: false,
-    secure: false,
-    auth: {
-      user: process.env.USER,
-      pass: process.env.PASSWORD
-    }
-  });
+const port = process.env.PORT || 5000;
+var transporter = nodemailer.createTransport({
+  host: "sandbox.smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "96d7eaead927ee",
+    pass: "682508c2ae42c5"
+  }
+});
 
-app.use(bodyParser.json({ limit: '30mb', extended: true }))
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
+app.use(express.json({ limit: '30mb', extended: true }))
+app.use(express.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
 // API
@@ -36,7 +35,7 @@ app.post('/send', auth, (req, res, next) => {
   
     var mail = {
       from: name,
-      to: process.env.EMAIL,// receiver email,
+      to: "santoshhm90@gmail.com",// receiver email,
       subject: subject,
       text: message
     }
@@ -54,12 +53,13 @@ app.post('/send', auth, (req, res, next) => {
     })
   });
 
+app.use(['/user', '/memory','/chartdata'],[userRoute,memoryRoute,chartRoute]); // Register the route using app.use(<router_name>)
+
 app.use(express.static(path.join(__dirname, '../build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build'))
 });
 
-app.use(['/user', '/memory'],[userRoute,memoryRoute]); // Register the route using app.use(<router_name>)
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });

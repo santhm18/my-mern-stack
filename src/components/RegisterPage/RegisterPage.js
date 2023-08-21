@@ -40,6 +40,12 @@ function RegisterPage()  {
                            {errors.lastname &&  <div className="invalid">{errors.lastname}</div>}
                     </div>
                     <div className="form-group marginBottom15">
+                        <label className="form-group marginBottom5">Phone Number</label>
+                        <input type="text" className="form-control" placeholder="Phone Number"  name="phoneNumber" 
+                         onChange={handleChange}/>
+                           {errors.phoneNumber &&  <div className="invalid">{errors.phoneNumber}</div>}
+                    </div>
+                    <div className="form-group marginBottom15">
                         <label className="form-group marginBottom5">Email address</label>
                         <input type="email" className="form-control" placeholder="Enter email" name="email" 
                         onChange={handleChange}/>

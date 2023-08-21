@@ -1,9 +1,10 @@
 import { Types } from '../_constants/actionTypes';
-import { loginUser, registerUser, logoutUser } from '../_services';
+import { loginUser, registerUser, logoutUser , updateUser } from '../_services';
 import { userDetails } from '../_helpers';
 export const userActions = {
   register,
   login,
+  updateProfile,
   logout
 };
 
@@ -33,6 +34,8 @@ function login(user, navigate, from) {
       sessionStorage.setItem('userDetails', JSON.stringify(response.data));
       dispatch(success(response.data));  // dispatch success message here
       navigate(from);
+
+      // history.push("/home");
     })
       .catch((error) => {
         // Error
@@ -44,6 +47,31 @@ function login(user, navigate, from) {
   function success(user) { return { type: Types.LOGIN_SUCCESS, user } }
   function errorMsg(message) { return { type: Types.LOGIN_FAILURE, message } }
 }
+
+
+function updateProfile(user, navigate, from,setIsLoading) {
+  setIsLoading(true);
+  return async dispatch => {
+    await dispatch(request(user));
+    await updateUser(user).then((response) => {
+      // Success
+      sessionStorage.setItem('userDetails', JSON.stringify(response.data));
+       setIsLoading(false);
+      dispatch(success(response.data));  // dispatch success message here
+      navigate(from);
+    })
+      .catch((error) => {
+        // Error
+        setIsLoading(false);
+        dispatch(errorMsg(error.response.data.error));
+      });
+  }
+
+  function request(user) { return { type: Types.REGISTER_UPDATE_REQUEST, user } }
+  function success(user) { return { type: Types.REGISTER_UPDATE_SUCCESS, user } }
+  function errorMsg(message) { return { type: Types.REGISTER_UPDATE_FAILURE, message } }
+}
+
 
 function logout(token,navigate, from) {
   return async dispatch => { // returns dispatch method so that other async operations of dipatch can be executed.

@@ -7,7 +7,8 @@
 .createButton > button {
     color: #fff;
     font-size: 14px;
-    font-family: IBM Plex Sans Text;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     letter-spacing: 0.16px;
     line-height: 18px;
     padding: 8px 8px 8px 8px;
@@ -25,7 +26,8 @@
 .dashboard {
    /* padding: 40px 0px 10px 20px; */
    padding: 0px 0px 10px 0px;
-   height: 100vh;
+   height: auto;
+   /* height: 100vh; */
 
 }
 
@@ -45,7 +47,8 @@
 }
 
 .dashboardTab > li .nav-link {
-    font-family: IBM Plex Sans Medium;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     background-color: #E6E6E6;
     color:#525252;
     line-height: 18px;
@@ -60,7 +63,8 @@
 .dashboardTab > li .nav-link.active {
     border-radius: 0px;
     border: none;
-    font-family: IBM Plex Sans Medium;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     border-top: 3px solid #0062FF;
     color: #171717;
     font-size: 14px;
@@ -68,11 +72,13 @@
 
 .displayLastLogin {
     font-style: italic;
-    font-size: 12px;
+    font-size: 14px;
     color: #565656;
     line-height:16px;
-    font-family: IBM Plex Sans Medium;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     letter-spacing:0.32px;
+    margin-top: 10px;
 }
 
 
@@ -102,3 +108,8 @@
   .textRight {
       text-align: right;
   }
+
+.dashboard-container {
+    margin-top: 50px;
+}
+  

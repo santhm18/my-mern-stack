@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { sendContactDetails } from '../../_actions/memoriespost';
+import Spinner from "../Spinner/Spinner";
 import "./ContactUs.css";
+import Alert from 'react-bootstrap/Alert';
 function ContactUs() {
     const dispatch = useDispatch();
     const [contactdetails, setContactDetails] = useState({
@@ -10,20 +12,24 @@ function ContactUs() {
         subject: '',
         message: ''
     });
+    const [show, setShow] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-
+    const [isloading, setIsLoading] = useState(false);
     function handleChange(e) {
         const { name, value } = e.target;
         setContactDetails(contactdetails => ({ ...contactdetails, [name]: value }));
     }
 
+
     function handleSubmit(e) {
         e.preventDefault();
-        setSubmitted(true);
+        setIsLoading(true);
         if (contactdetails.email && contactdetails.username) {
-            setSubmitted(false);
-            dispatch(sendContactDetails(contactdetails));
-            resetForm();
+            setSubmitted(true);
+            dispatch(sendContactDetails(contactdetails,setIsLoading,setShow));
+            // resetForm();
+        } else {
+            setIsLoading(false);
         }
     }
 
@@ -31,9 +37,26 @@ function ContactUs() {
         setContactDetails({ email: '', username: '', subject: '', message: '' })
     }
 
+    if (show) {
+        return (
+        <div className="alert-notification">
+              <Alert variant="success" onClose={() => setShow(false)} dismissible>
+         <Alert.Heading>Thank you for getting in touch! </Alert.Heading>
+                <p style={{
+                fontSize: "14px",
+                fontFamily :  "IBM Plex Sans"
+                }}>
+                We appreciate you contacting us. One of our colleagues will get back in touch with you soon!Have a great day!
+                </p>
+          </Alert>
+        </div>
+        );
+      }
+
     return (
         <div className="contactUs">
-            <div className="container">
+
+  {isloading  ? (<Spinner/>) : ( <div className="container">
                 <div className="sendUsMessageContainer">
                     <h1 className="margin0 SendMessageTitle mt-3 text-center">Send Us a Message </h1>
                     <form name="form" autoComplete="off" onSubmit={handleSubmit}>
@@ -57,7 +80,7 @@ function ContactUs() {
                         </div>
                     </form>
                 </div>
-            </div>
+            </div>)}
         </div>
     );
 }

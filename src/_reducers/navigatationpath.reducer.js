@@ -1,6 +1,6 @@
 import { Types } from '../_constants/actionTypes';
-
-export function navigatationpath(state = [], action) {
+const initialState = 1;
+export function navigatationpath(state = initialState, action) {
     switch (action.type) {
         case Types.NAVIGATE_PATH:
             return {

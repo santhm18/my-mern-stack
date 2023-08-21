@@ -47,6 +47,20 @@ const useValidateForm = (callback) => {
                     
                 }
                 break;
+
+
+                case 'phoneNumber':
+                    if(
+                        !(value.match('[0-9]{10}')) 
+                    ){
+                        setErrors({ ...errors,phoneNumber:'Enter a valid Phone Number'});
+                    }else{
+    
+                        let newObj = omit(errors, "phoneNumber");
+                        setErrors(newObj);
+                        
+                    }
+                break;
         
             case 'email':
                 if(

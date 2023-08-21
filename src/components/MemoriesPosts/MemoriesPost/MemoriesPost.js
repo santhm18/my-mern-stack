@@ -14,28 +14,50 @@ function MemoriesPost(props) {
       props.parentCallback(id);
    }
    return (
-      <div className="post">
-         <div className="topBanner">
-            <div className="topBannerDetails" style={selectedFile}>
-            <p>{props.memory.creator}</p>
-            <p>{formattedTime} hours</p>
-            </div>
+      <div className="card">
+         <div className="img-card">
+            <img style={selectedFile} className="topBannerDetails" />
          </div>
-
-         <div className="bodyContent">
-            <p className="createdDate">{formattedDate}</p>
-            <div className="memory-content">
-               <h1>{props.memory.title}</h1>
-               <p className="description" dangerouslySetInnerHTML={{ __html: props.memory.description }} ></p>
-            </div>
+         <div className="card-content">
+            <h4 className="card-title">
+               <p> {props.memory.title}
+               </p>
+            </h4>
+            <p className="description" dangerouslySetInnerHTML={{ __html: props.memory.description }}></p>
+         </div>
+         <div className="card-actions">
             <div className="actions">
-            <Link to={`/memory/${props.memory._id}/edit`} state= {{memory:props.memory}}>
-            <span className="EditMemoryBtn"><i className="bi bi-pencil"></i></span></Link>
-            <div className="deleteMemoryBtn float-end" onClick={removeMemoryById}><i className="bi bi-trash"></i></div>
-            <div className="clear"></div>
+               <div className="editCard float-start">
+               <Link to={`/memory/${props.memory._id}/edit`} state={{ memory: props.memory }}>
+                  <span className="EditMemoryBtn"><i className="bi bi-pencil"></i></span></Link>
+               </div>
+               <div className="deleteMemoryBtn float-end" onClick={removeMemoryById}><i className="bi bi-trash"></i></div>
             </div>
+            <div className="clear"></div>
          </div>
-      </div>
+      </div> 
+      // <div className="post">
+      //    <div className="topBanner">
+      //       <div className="topBannerDetails" style={selectedFile}>
+      //       <p>{props.memory.creator}</p>
+      //       <p>{formattedTime} hours</p>
+      //       </div>
+      //    </div>
+
+      //    <div className="bodyContent">
+      //       <p className="createdDate">{formattedDate}</p>
+      //       <div className="memory-content">
+      //          <h1>{props.memory.title}</h1>
+      //          <p className="description" dangerouslySetInnerHTML={{ __html: props.memory.description }} ></p>
+      //       </div>
+      //       <div className="actions">
+      //       <Link to={`/memory/${props.memory._id}/edit`} state= {{memory:props.memory}}>
+      //       <span className="EditMemoryBtn"><i className="bi bi-pencil"></i></span></Link>
+      //       <div className="deleteMemoryBtn float-end" onClick={removeMemoryById}><i className="bi bi-trash"></i></div>
+      //       <div className="clear"></div>
+      //       </div>
+      //    </div>
+      // </div>
 
    );
 }

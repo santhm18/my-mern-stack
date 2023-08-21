@@ -20,7 +20,25 @@ router.post('/register', async (req, res) => {
         }
         // req.body.password =  bcrypt.hashSync(req.body.password, 8);
         await user.save();
-        res.status(201).send({ user });
+        res.status(200).send({ user });
+    } catch (e) {
+        res.status(400).send(e);
+    }
+});
+
+router.get('/getAllUsers', auth,async (req, res) => {
+    try {
+        // const userDetails =  await User.findById(req.user._id);
+        // console.log(userDetails);
+        const allUsers =  await User.find();
+       // const userMemories = req.user['user']._mongooseOptions === {} ? {} : req.user['user']._mongooseOptions.populate('memories');
+     //  await userMemories;
+     if (allUsers) {
+        return res.status(200).json({
+            status: 'success',
+            users: allUsers
+        });
+    }
     } catch (e) {
         res.status(400).send(e);
     }
@@ -63,26 +81,29 @@ router.post("/logout", auth, async (req, res) => {
 });
 
 
-router.post("/updateProfile", async (req, res) => {
+router.post("/updateProfile", auth,async (req, res) => {
 
     try {
-        const user =  await User.findById(req.user._id);
+        const user =  await User.findById(req.body._id);
 
         if(user) {
-            user.name = req.body.name;
+            user.firstname = req.body.firstname;
+            user.lastname = req.body.lastname;
             user.email =  req.body.email;
+            user.phoneNumber =  req.body.phoneNumber;
         }
 
         if(req.body.password) {
             user.password =  req.body.password;
         }
-
-        const updatedUser =  await user.save();
-        const token = await updatedUser.generateAuthToken();
+        // const updatedUser =  await user.save();
+        const token = await user.generateAuthToken();
         res.json({
-            _id:updatedUser._id,
-            name: updatedUser.name,
-            email:updatedUser.email,
+            _id:user._id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email:user.email,
+            phonenumber : user.phoneNumber,
             token :  token
         })
         

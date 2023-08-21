@@ -3,6 +3,7 @@ import FileBase64 from 'react-file-base64';
 import { connect } from 'react-redux';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Spinner from "../Spinner/Spinner";
 import "./MemoriesForm.css";
 import { createNewMemory } from '../../_actions/memoriespost';
 class MemoriesForm extends React.Component {
@@ -16,7 +17,6 @@ class MemoriesForm extends React.Component {
          description: '',
          selectedFile: ''
       }
-
       this.handleChange = this.handleChange.bind(this);
       this.handleEditorChange = this.handleEditorChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,36 +38,14 @@ class MemoriesForm extends React.Component {
 
    handleSubmit(e) {
       e.preventDefault();
-      // const {currentId} =  this.props;
       const memory = this.state;
       this.props.createNewMemory(memory);
-      // if (currentId === 0) {
-      //    this.props.createNewMemory(memory);
-      //  } else {
-      //    this.props.updateMemory(currentId,memory);
-      //  }
    }
-
-   // static getDerivedStateFromProps(props, current_state) {
-   //    if (props.currentId !== 0) {
-   //       const selectedMemory =  props.currentId ? props.memories.find((memory) => memory._id === props.currentId) : null;
-   //       return {
-   //          creator: selectedMemory.creator,
-   //          title:selectedMemory.title,
-   //          description:selectedMemory.description
-   //        }
-   //    }
-   //    return null
-   //  }
-
-   
-
    render() {
       // const { creator, title, description } = this.state;
       // const { currentId, setCurrentId } = this.props;
       return (
-
-         <div className="modal fade memoryFormModal" id="memoryFormModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div className="modal fade memoryFormModal" id="memoryFormModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
             <div className="container modal-dialog modal-dialog-scrollable modal-fullscreen">
                <form name="form" onSubmit={this.handleSubmit} autoComplete="off">
                   <div className="modal-content">
@@ -124,7 +102,7 @@ class MemoriesForm extends React.Component {
                      </div>
                      <div className="modal-footer">
                         <button type="button" className="btn formClearbutton formbuttons" data-bs-dismiss="modal">Close</button>
-                        <button className="btn formCreationbutton formbuttons">Submit</button>
+                        <button className="btn formCreationbutton formbuttons" data-bs-dismiss="modal">Submit</button>
                      </div>
                   </div>
                </form>
